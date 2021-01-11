@@ -11,11 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'PagesController@home');
+Route::get('/about', 'PagesController@about');
 
-Route::get('/about', function () {
-    $name = 'Gayuh Ridho';
-    return view('about', ['name' => $name]);
-});
+Route::get('/students', 'StudentsController@index');
+Route::get('/students/{student}', 'StudentsController@show');
