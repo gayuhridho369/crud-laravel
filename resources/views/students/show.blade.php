@@ -16,8 +16,14 @@
                     <p class="card-text m-0"> <i> {{ $student->email }} </i></p>
                     <p class="card-text m-0"> {{ $student->major }} </p>
 
-                    <button type="submit" class="btn btn-success btn-sm mr-2 mt-3"> Edit</button>
-                    <button type="submit" class="btn btn-danger btn-sm mr-2 mt-3"> Delete</button>
+                    <a href="/students/{{ $student->id }}/edit" class="btn btn-success btn-sm mr-2 mt-3"> Edit</a>
+
+                    <form href="/students/{{ $student->id }}" method="post" class="d-inline">
+                        @method('delete')
+                        @csrf
+                        <button type="submit" class="btn btn-danger btn-sm mr-2 mt-3"> Delete</button>
+                    </form>
+
                     <a href="/students" class="card-link float-right mt-4">Back</a>
                 </div>
             </div>
